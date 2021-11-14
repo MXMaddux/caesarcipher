@@ -6,21 +6,32 @@ shift = int(input("Type the shift number:\n"))
 
 #TODO-1: Combine the encrypt() and decrypt() functions into a single function called caesar(). 
 
-def caesar(text, shift, direction):
-  if direction == "encode":
-    cipher_text = ""
-    for letter in text:
-      position = alphabet.index(letter)
-      new_position = position + shift
-      cipher_text += alphabet[new_position]
-    print(f"The encoded word is {cipher_text}")
-  else:
-    plain_text = ""
-    for letter in text:
-      position = alphabet.index(letter)
-      new_position = position - shift
-      plain_text += alphabet[new_position]
-    print(f"The decoded word is {plain_text}")
+# def caesar(text, shift, direction):
+#   if direction == "encode":
+#     cipher_text = ""
+#     for letter in text:
+#       position = alphabet.index(letter)
+#       new_position = position + shift
+#       cipher_text += alphabet[new_position]
+#     print(f"The encoded word is {cipher_text}")
+#   else:
+#     plain_text = ""
+#     for letter in text:
+#       position = alphabet.index(letter)
+#       new_position = position - shift
+#       plain_text += alphabet[new_position]
+#     print(f"The decoded word is {plain_text}")
+
+# ANGELA'S SOLUTION
+def caesar(start_text, shift_amount, cipher_direction):
+    end_text = ""
+    if cipher_direction == "decode":
+            shift_amount *= -1
+    for letter in start_text:
+        position = alphabet.index(letter)
+        new_position = position + shift_amount
+        end_text += alphabet[new_position]
+    print(f"the {cipher_direction}d text is {end_text}")
 
 caesar(text, shift, direction)
 
